@@ -115,6 +115,7 @@ echo '---- INSTALLING PHP7'
 apt-get -qq install -y php7.0 php7.0-mysql libapache2-mod-php7.0 php7.0-gd php7.0-json
 echo '--'
 
+
 echo '---- INSTALLING MYSQL WITH NO ROOT PASSWORD'
 DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
 echo '--'
@@ -146,20 +147,20 @@ chmod 644 /var/log/apache2/error.log
 chmod 755 /var/log/apache2
 sed -i 's/create 640 root adm/create 644 root adm/' /etc/logrotate.d/apache2
 
-#echo '-----------------------------------------------------------------------------------------------'
-#echo '---- INSTALLING TOMCAT JAVA WEB SERVER'
-#echo '-----------------------------------------------------------------------------------------------'
-# #some 16.04 commands for working with tomcat include
-# #systemctl status tomcat8
-# #systemctl restart tomcat8
+echo '-----------------------------------------------------------------------------------------------'
+echo '---- INSTALLING TOMCAT JAVA WEB SERVER'
+echo '-----------------------------------------------------------------------------------------------'
+# some 16.04 commands for working with tomcat include
+# systemctl status tomcat8
+# systemctl restart tomcat8
 
-#apt-get -qq install -y tomcat8 tomcat8-docs tomcat8-admin tomcat8-examples
+apt-get -qq install -y tomcat8 tomcat8-docs tomcat8-admin tomcat8-examples
 
-#echo '---- CONFIGURE TOMCAT'
-#echo '---- SET THE TOMCAT ADMIN USER: tomcat'
-#echo '---- SET THE TOMCAT ADMIN PASSWORD: tomcatpw'
-#echo '---- UPLOAD AND RUN JSP PROGRAMS AT BROWSER URL OF: ipaddress:8080'
-#sed -i 's/<\/tomcat-users>/  <user username="tomcat" password="mucis" roles="manager-gui,admin-gui"\/><\/tomcat-users>/' /etc/tomcat8/tomcat-users.xml
+echo '---- CONFIGURE TOMCAT'
+echo '---- SET THE TOMCAT ADMIN USER: tomcat'
+echo '---- SET THE TOMCAT ADMIN PASSWORD: tomcatpw'
+echo '---- UPLOAD AND RUN JSP PROGRAMS AT BROWSER URL OF: ipaddress:8080'
+sed -i 's/<\/tomcat-users>/  <user username="tomcat" password="mucis" roles="manager-gui,admin-gui"\/><\/tomcat-users>/' /etc/tomcat8/tomcat-users.xml
 
 # Todo -- add a nodejs server option
 
